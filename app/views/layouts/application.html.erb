@@ -11,8 +11,9 @@
   </head>
 
   <body>
+    <%= render 'layouts/navigation' %>
     <% flash.each do |type, msg| %>
-      <div class="ms-5 me-5 alert alert-success" role="alert">
+      <div class="ms-5 me-5 mb-5 alert alert-success" role="alert">
         <%= msg %>
       </div>
     <% end %>
