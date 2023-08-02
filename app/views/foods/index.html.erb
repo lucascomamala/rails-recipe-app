@@ -2,13 +2,13 @@
 
 <div class='container'>
 <h1>Foods</h1>
-<%= link_to "New food", new_food_path, class: "btn btn-success" %>
+<%= link_to "New food", new_food_path, class: "btn btn-success mb-4" %>
 
 <div id="foods">
   <% if @foods.empty? %>
     <h4>There are no foods yet. Add one!</h4>
   <% else %>
-    <table class="mt-4 table table-dark table-striped table-hover">
+    <table class="table table-dark table-striped table-hover">
       <thead class="table-light">
         <tr>
           <th scope="col">Name</th>
