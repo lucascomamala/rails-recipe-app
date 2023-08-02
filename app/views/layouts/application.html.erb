@@ -13,9 +13,15 @@
   <body>
     <%= render 'layouts/navigation' %>
     <% flash.each do |type, msg| %>
-      <div class="ms-5 me-5 mb-5 alert alert-success" role="alert">
-        <%= msg %>
-      </div>
+      <% if type == 'notice' %>
+        <div class="mx-5 alert alert-success" role="alert">
+          <%= msg %>
+        </div>
+      <% elsif type == 'alert' %>
+        <div class="mx-5 alert alert-danger" role="alert">
+          <%= msg %>
+        </div>
+      <% end %>
     <% end %>
     <%= yield %>
   </body>

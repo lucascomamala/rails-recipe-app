@@ -9,3 +9,9 @@ body {
   background-origin: border-box;
   color: #fff;
 }
+
+@media screen and (max-width: 990px) {
+  body {
+    background-image: none;
+  }
+}

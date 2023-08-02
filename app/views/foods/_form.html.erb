@@ -1,35 +1,10 @@
-<%= form_with(model: food) do |form| %>
-  <% if food.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(food.errors.count, "error") %> prohibited this food from being saved:</h2>
+<%= bootstrap_form_with(model: food) do |form| %>
+  <%= form.alert_message "Please fix the errors below.", error_summary: false %>
 
-      <ul>
-        <% food.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :measurement_unit, style: "display: block" %>
-    <%= form.text_field :measurement_unit %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div>
-    <%= form.label :quantity, style: "display: block" %>
-    <%= form.number_field :quantity %>
-  </div>
+  <%= form.text_field :name, autofocus: true, label_as_placeholder: true %>
+  <%= form.text_field :measurement_unit, label_as_placeholder: true %>
+  <%= form.text_field :price, label_as_placeholder: true, prepend: "$" %>
+  <%= form.number_field :quantity, label_as_placeholder: true %>
 
   <div>
     <%= form.submit %>
