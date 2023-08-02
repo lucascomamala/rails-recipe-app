@@ -16,6 +16,7 @@
   </td>
 
   <td>
+    <%= link_to "Modify", edit_food_path(food) %>&nbsp;&nbsp;
     <%= link_to "Delete", food, class: 'text-danger', data: { turbo_method: :delete } %>
   </td>
 </tr>

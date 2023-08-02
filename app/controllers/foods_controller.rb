@@ -28,7 +28,7 @@ class FoodsController < ApplicationController
    # PATCH/PUT /foods/1
   def update
     if @food.update(food_params)
-      redirect_to food_url(@food), notice: 'Food successfully updated.'
+      redirect_to foods_url, notice: 'Food successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
