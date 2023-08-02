@@ -12,9 +12,10 @@ class RecipeFoodsController < ApplicationController
   # POST /recipe_foods
   def create
     @recipe_food = RecipeFood.new(recipe_food_params)
+    @recipe_food.recipe_id = Recipe.find(params[:recipe_id]).id
 
     if @recipe_food.save
-      redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully created.'
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Ingredient successfully added.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -44,6 +45,6 @@ class RecipeFoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_food_params
-    params.require(:recipe_food).permit(:quantity)
+    params.require(:recipe_food).permit(:quantity, :food_id)
   end
 end

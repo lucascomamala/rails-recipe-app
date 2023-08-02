@@ -1,9 +1,24 @@
-<h1>New recipe food</h1>
+<div class='container text-center'>
+  <div class='col-6 col-lg-4 col-xl-3 col-xxl-3 mx-auto'>
+    <h1>New ingredient</h1>
 
-<%= render "form", recipe_food: @recipe_food %>
+    <%= bootstrap_form_with url: recipe_recipe_foods_path, scope: :recipe_food do |form| %>
+      <% if @recipe_food.errors.any? %>
+        <div style="color: red">
+          <h2><%= pluralize(@recipe_food.errors.count, "error") %> prohibited this recipe_food from being saved:</h2>
 
-<br>
+          <ul>
+            <% @recipe_food.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-<div>
-  <%= link_to "Back to recipe foods", recipe_foods_path %>
+      <%= form.number_field :quantity, autofocus: true %>
+      <%= form.collection_select :food_id, Food.all, :id, :name, label: "Food" %>
+      
+      <%= form.submit "Save Ingredient", class: "btn btn-success" %>
+    <% end %>
+  </div>
 </div>

@@ -26,10 +26,10 @@
       </div>
       <div class='row'>
         <div class='col'>
-          <%= button_to "Generate Shopping List", recipe_path(@recipe), class: 'btn btn-info' %>
+          <%= link_to "Generate Shopping List", recipe_path(@recipe), class: 'btn btn-info' %>
         </div>
         <div class='col d-flex justify-content-end'>
-          <%= button_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: 'btn btn-info' %>
+          <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: 'btn btn-info' %>
         </div>
       </div>
     </div>
