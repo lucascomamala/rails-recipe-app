@@ -9,42 +9,30 @@ class RecipeFoodsController < ApplicationController
   # GET /recipe_foods/1/edit
   def edit; end
 
-  # POST /recipe_foods or /recipe_foods.json
+  # POST /recipe_foods
   def create
     @recipe_food = RecipeFood.new(recipe_food_params)
 
-    respond_to do |format|
-      if @recipe_food.save
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe_food }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
-      end
+    if @recipe_food.save
+      redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully created.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /recipe_foods/1 or /recipe_foods/1.json
+  # PATCH/PUT /recipe_foods/1
   def update
-    respond_to do |format|
-      if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe_food }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
-      end
+    if @recipe_food.update(recipe_food_params)
+      redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /recipe_foods/1 or /recipe_foods/1.json
+  # DELETE /recipe_foods/1
   def destroy
     @recipe_food.destroy
-
-    respond_to do |format|
-      format.html { redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.'
   end
 
   private
