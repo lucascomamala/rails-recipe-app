@@ -4,6 +4,6 @@
     <h6 class="card-subtitle mb-2 text-muted">Preparation Time:&nbsp;<%= recipe.preparation_time %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cooking Time:&nbsp;<%= recipe.cooking_time %></h6>
     <p class="card-text"><%= recipe.description %></p>
     <%= link_to "Edit recipe", recipe, class: 'card-link' %>
-    <a href="#" class="card-link text-danger">Delete recipe</a>
+    <%= link_to "Delete recipe", recipe, class: 'card-link text-danger', data: { turbo_method: :delete } %>
   </div>
 </div>
