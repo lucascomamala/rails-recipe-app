@@ -1,6 +1,15 @@
 <div class='container text-center'>
   <div class='col-6 col-lg-4 col-xl-3 col-xxl-3 mx-auto'>
     <h1>New Food</h1>
-    <%= render "form", food: @food %>
+    <%= bootstrap_form_with(model: food) do |form| %>
+      <%= form.alert_message "Please fix the errors below.", error_summary: false %>
+
+      <%= form.text_field :name, autofocus: true, label_as_placeholder: true %>
+      <%= form.text_field :measurement_unit, label_as_placeholder: true %>
+      <%= form.text_field :price, label_as_placeholder: true, prepend: "$" %>
+      <%= form.number_field :quantity, label_as_placeholder: true %>
+      
+      <%= form.submit "Create Food", class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>
