@@ -1,6 +1,6 @@
 <div class="card text-bg-dark mb-4" id="<%= dom_id recipe %>">
   <div class="card-body">
-    <h5 class="card-title"><%= recipe.name %></h5>
+    <h3 class="card-title"><%= recipe.name %></h3>
     <h6 class="card-subtitle mb-2 text-muted">Preparation Time:&nbsp;<%= recipe.preparation_time %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cooking Time:&nbsp;<%= recipe.cooking_time %></h6>
     <p class="card-text"><%= recipe.description %></p>
     <%= link_to "Edit recipe", recipe, class: 'card-link' %>

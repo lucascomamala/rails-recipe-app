@@ -1,0 +1,14 @@
+<div class='container text-center'>
+  <div class='col-6 col-lg-4 col-xl-3 col-xxl-3 mx-auto'>
+    <h1>Modify Food</h1>
+    <h2 class='mb-4'><%= @food.name %></h2>
+    <%= bootstrap_form_with(model: @food) do |form| %>
+      <%= form.alert_message "Please fix the errors below.", error_summary: false %>
+
+      <%= form.text_field :price, prepend: "$" %>
+      <%= form.number_field :quantity %>
+      
+      <%= form.submit "Save Food", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>
