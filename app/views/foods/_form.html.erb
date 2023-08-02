@@ -5,8 +5,6 @@
   <%= form.text_field :measurement_unit, label_as_placeholder: true %>
   <%= form.text_field :price, label_as_placeholder: true, prepend: "$" %>
   <%= form.number_field :quantity, label_as_placeholder: true %>
-
-  <div>
-    <%= form.submit %>
-  </div>
+  
+  <%= form.submit "Create Food", class: "btn btn-success" %>
 <% end %>
