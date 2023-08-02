@@ -33,7 +33,7 @@ class RecipeFoodsController < ApplicationController
   # DELETE /recipe_foods/1
   def destroy
     @recipe_food.destroy
-    redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.'
+    redirect_to request.referrer, notice: 'Ingredient was successfully removed.'
   end
 
   private

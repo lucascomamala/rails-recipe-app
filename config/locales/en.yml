@@ -31,3 +31,13 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    attributes:
+      recipe_food:
+        food: ""
+    errors:
+      models:
+        recipe_food:
+          attributes:
+            food:
+              taken: "That food is aleady in the recipe"
