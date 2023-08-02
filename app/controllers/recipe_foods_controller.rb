@@ -7,7 +7,9 @@ class RecipeFoodsController < ApplicationController
   end
 
   # GET /recipe_foods/1/edit
-  def edit; end
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+  end
 
   # POST /recipe_foods
   def create
@@ -24,7 +26,7 @@ class RecipeFoodsController < ApplicationController
   # PATCH/PUT /recipe_foods/1
   def update
     if @recipe_food.update(recipe_food_params)
-      redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.'
+      redirect_to recipe_path(@recipe_food.recipe_id), notice: 'Ingredient successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
@@ -33,7 +35,7 @@ class RecipeFoodsController < ApplicationController
   # DELETE /recipe_foods/1
   def destroy
     @recipe_food.destroy
-    redirect_to request.referrer, notice: 'Ingredient was successfully removed.'
+    redirect_to request.referrer, notice: 'Ingredient successfully removed.'
   end
 
   private
