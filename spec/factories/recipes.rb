@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :recipe do
-    name { 'MyString' }
-    preparation_time { 1 }
-    cooking_time { 1 }
-    description { 'MyText' }
-    public { false }
+    name { 'Scrambled Eggs' }
+    preparation_time { 10 }
+    cooking_time { 15 }
+    description { 'Scramble them eggs' }
+    public { true }
   end
 end
