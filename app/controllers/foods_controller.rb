@@ -25,7 +25,7 @@ class FoodsController < ApplicationController
     end
   end
 
-   # PATCH/PUT /foods/1
+  # PATCH/PUT /foods/1
   def update
     if @food.update(food_params)
       redirect_to foods_url, notice: 'Food successfully updated.'
