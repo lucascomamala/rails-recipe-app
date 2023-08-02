@@ -1,5 +1,5 @@
 class RecipesController < ApplicationController
-  before_action :set_recipe, only: %i[show edit update destroy]
+  before_action :set_recipe, only: %i[show destroy]
 
   # GET /recipes
   def index
@@ -14,9 +14,6 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new
   end
 
-  # GET /recipes/1/edit
-  def edit; end
-
   # POST /recipes
   def create
     @recipe = current_user.recipes.new(recipe_params)
@@ -25,15 +22,6 @@ class RecipesController < ApplicationController
       redirect_to recipes_url, notice: 'Recipe was successfully created.'
     else
       render :new, status: :unprocessable_entity
-    end
-  end
-
-  # PATCH/PUT /recipes/1
-  def update
-    if @recipe.update(recipe_params)
-      redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.'
-    else
-      render :edit, status: :unprocessable_entity
     end
   end
 
