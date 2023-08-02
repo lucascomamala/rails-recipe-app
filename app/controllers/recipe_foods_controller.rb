@@ -7,44 +7,35 @@ class RecipeFoodsController < ApplicationController
   end
 
   # GET /recipe_foods/1/edit
-  def edit; end
+  def edit
+    @recipe = Recipe.find(params[:recipe_id])
+  end
 
-  # POST /recipe_foods or /recipe_foods.json
+  # POST /recipe_foods
   def create
     @recipe_food = RecipeFood.new(recipe_food_params)
+    @recipe_food.recipe_id = Recipe.find(params[:recipe_id]).id
 
-    respond_to do |format|
-      if @recipe_food.save
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully created.' }
-        format.json { render :show, status: :created, location: @recipe_food }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
-      end
+    if @recipe_food.save
+      redirect_to recipe_path(params[:recipe_id]), notice: 'Ingredient successfully added.'
+    else
+      render :new, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /recipe_foods/1 or /recipe_foods/1.json
+  # PATCH/PUT /recipe_foods/1
   def update
-    respond_to do |format|
-      if @recipe_food.update(recipe_food_params)
-        format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe_food }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
-      end
+    if @recipe_food.update(recipe_food_params)
+      redirect_to recipe_path(@recipe_food.recipe_id), notice: 'Ingredient successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  # DELETE /recipe_foods/1 or /recipe_foods/1.json
+  # DELETE /recipe_foods/1
   def destroy
     @recipe_food.destroy
-
-    respond_to do |format|
-      format.html { redirect_to recipe_foods_url, notice: 'Recipe food was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to request.referrer, notice: 'Ingredient successfully removed.'
   end
 
   private
@@ -56,6 +47,6 @@ class RecipeFoodsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def recipe_food_params
-    params.require(:recipe_food).permit(:quantity)
+    params.require(:recipe_food).permit(:quantity, :food_id)
   end
 end

@@ -1,8 +1,46 @@
-<%= render @recipe %>
-
-<div>
-  <%= link_to "Edit this recipe", edit_recipe_path(@recipe) %> |
-  <%= link_to "Back to recipes", recipes_path %>
-
-  <%= button_to "Destroy this recipe", @recipe, method: :delete %>
+<div class='mt-5 container'>
+  <div class="card text-bg-dark mb-4" id="<%= dom_id @recipe %>">
+    <div class="card-body d-flex flex-column">
+      <div class='row'>
+        <h2 class="card-title"><%= @recipe.name %></h2>
+      </div>
+      <div class='row'>
+        <div class='mb-2 col'>
+          <h6 class="text-muted">Preparation Time:&nbsp;<%= @recipe.preparation_time %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cooking Time:&nbsp;<%= @recipe.cooking_time %></h6>
+        </div>
+        <div class='mb-2 col d-flex justify-content-end'>
+          Public&nbsp;&nbsp;  
+          <% if @recipe.public %>
+            <span class="form-check form-switch">
+              <input class="form-check-input form-switch" type="checkbox" role="switch" id="flexSwitchCheckCheckedDisabled" checked onclick="return false;">
+            </span>
+          <% else %>
+            <span class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDisabled" onclick="return false;">
+            </span>
+          <% end %>
+        </div>
+      </div>
+      <div class='row'>
+        <p><%= @recipe.description %></p>
+      </div>
+      <div class='row'>
+        <div class='col'>
+          <%= link_to "Generate Shopping List", recipe_path(@recipe), class: 'btn btn-info' %>
+        </div>
+        <div class='col d-flex justify-content-end'>
+          <%= link_to "Add Ingredient", new_recipe_recipe_food_path(@recipe), class: 'btn btn-info' %>
+        </div>
+      </div>
+      <hr />
+      <div class='row'>
+        <div class='col'>
+        <% if @recipe.recipe_foods.empty? %>
+          <h5>Add some ingredients!</h5>
+        <% else %>
+          <%= render partial: 'ingredients' %>
+        <% end %>
+        </div>
+    </div>
+  </div>
 </div>

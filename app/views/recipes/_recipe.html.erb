@@ -1,27 +1,9 @@
-<div id="<%= dom_id recipe %>">
-  <p>
-    <strong>Name:</strong>
-    <%= recipe.name %>
-  </p>
-
-  <p>
-    <strong>Preparation time:</strong>
-    <%= recipe.preparation_time %>
-  </p>
-
-  <p>
-    <strong>Cooking time:</strong>
-    <%= recipe.cooking_time %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= recipe.description %>
-  </p>
-
-  <p>
-    <strong>Public:</strong>
-    <%= recipe.public %>
-  </p>
-
+<div class="card text-bg-dark mb-4" id="<%= dom_id recipe %>">
+  <div class="card-body">
+    <h5 class="card-title"><%= recipe.name %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Preparation Time:&nbsp;<%= recipe.preparation_time %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cooking Time:&nbsp;<%= recipe.cooking_time %></h6>
+    <p class="card-text"><%= recipe.description %></p>
+    <%= link_to "Edit recipe", recipe, class: 'card-link' %>
+    <%= link_to "Delete recipe", recipe, class: 'card-link text-danger', data: { turbo_method: :delete } %>
+  </div>
 </div>
