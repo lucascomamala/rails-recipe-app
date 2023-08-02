@@ -1,22 +1,21 @@
-<div id="<%= dom_id food %>">
-  <p>
-    <strong>Name:</strong>
+<tr id="<%= dom_id food %>">
+  <td>
     <%= food.name %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Measurement unit:</strong>
+  <td>
     <%= food.measurement_unit %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Price:</strong>
+  <td>
     <%= food.price %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Quantity:</strong>
+  <td>
     <%= food.quantity %>
-  </p>
+  </td>
 
-</div>
+  <td class='tr-delete'>
+    <%= link_to "Delete", food %>
+  </td>
+</tr>
