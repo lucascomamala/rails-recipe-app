@@ -8,7 +8,7 @@
   </td>
 
   <td>
-    <%= food.price %>
+    $<%= food.price %>
   </td>
 
   <td>
@@ -16,6 +16,6 @@
   </td>
 
   <td class='tr-delete'>
-    <%= link_to "Delete", food, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+    <%= link_to "Delete", food, class: 'text-danger', data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
   </td>
 </tr>
