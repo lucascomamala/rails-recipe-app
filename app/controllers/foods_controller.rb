@@ -1,5 +1,5 @@
 class FoodsController < ApplicationController
-  before_action :set_food, only: %i[destroy]
+  before_action :set_food, only: %i[edit update destroy]
 
   # GET /foods
   def index
@@ -11,21 +11,33 @@ class FoodsController < ApplicationController
     @food = Food.new
   end
 
+  # GET /foods/1/edit
+  def edit; end
+
   # POST /foods
   def create
     @food = current_user.foods.new(food_params)
 
     if @food.save
-      redirect_to foods_url, notice: 'Food was successfully created.'
+      redirect_to foods_url, notice: 'Food successfully created.'
     else
       render :new, status: :unprocessable_entity
+    end
+  end
+
+   # PATCH/PUT /foods/1
+  def update
+    if @food.update(food_params)
+      redirect_to food_url(@food), notice: 'Food successfully updated.'
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
   # DELETE /foods/1
   def destroy
     @food.destroy
-    redirect_to foods_url, notice: 'Food was successfully deleted.'
+    redirect_to foods_url, notice: 'Food successfully deleted.'
   end
 
   private
