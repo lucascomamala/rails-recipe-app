@@ -1,0 +1,14 @@
+<div class='mt-5 container'>
+  <h1>Public Recipes</h1>
+  
+  <div id="recipes">
+    <% if @recipes.empty? %>
+      <h4>There are no public recipes yet. Be the first to create  one!</h4>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+        <%= render 'public_recipe', recipe:  %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

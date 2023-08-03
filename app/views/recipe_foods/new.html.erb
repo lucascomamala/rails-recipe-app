@@ -1,0 +1,22 @@
+<div class='container text-center'>
+  <div class='col-6 col-lg-4 col-xl-3 col-xxl-3 mx-auto'>
+    <h1>New Ingredient</h1>
+
+    <%= bootstrap_form_with url: recipe_recipe_foods_path, scope: :recipe_food do |form| %>
+      <% if @recipe_food.errors.any? %>
+        <div class="alert alert-danger">
+          <ul class='mb-0'>
+            <% @recipe_food.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= form.number_field :quantity, autofocus: true %>
+      <%= form.collection_select :food_id, Food.all, :id, :name, label: "Food" %>
+      
+      <%= form.submit "Save Ingredient", class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

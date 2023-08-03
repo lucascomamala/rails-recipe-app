@@ -1,0 +1,14 @@
+<div class='mt-5 container'>
+  <h1>Recipes</h1>
+  <%= link_to "New recipe", new_recipe_path, class: "btn btn-success mb-4" %>
+
+  <div id="recipes">
+    <% if @recipes.empty? %>
+      <h4>You have no recipes yet. Add one!</h4>
+    <% else %>
+      <% @recipes.each do |recipe| %>
+        <%= render recipe %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

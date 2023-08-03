@@ -1,0 +1,22 @@
+<tr id="<%= dom_id food %>">
+  <td>
+    <%= food.name %>
+  </td>
+
+  <td>
+    <%= food.measurement_unit %>
+  </td>
+
+  <td>
+    <%= number_to_currency(food.price) %>
+  </td>
+
+  <td>
+    <%= food.quantity %>
+  </td>
+
+  <td>
+    <%= link_to "Modify", edit_food_path(food) %>&nbsp;&nbsp;
+    <%= link_to "Delete", food, class: 'text-danger', data: { turbo_method: :delete } %>
+  </td>
+</tr>

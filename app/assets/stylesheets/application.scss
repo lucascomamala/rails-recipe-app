@@ -1,0 +1,17 @@
+@import "bootstrap";
+@import "rails_bootstrap_forms";
+
+body {
+  background: #030303;
+  background-image: url(bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-origin: border-box;
+  color: #fff;
+}
+
+@media screen and (max-width: 990px) {
+  body {
+    background-image: none;
+  }
+}

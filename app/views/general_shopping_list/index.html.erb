@@ -1,0 +1,24 @@
+<div class='mt-5 container'>
+<h1>Shopping List</h1>
+  <% if @foods.length == 0 %>
+    <h2>There are no missing ingredients that must be purchased.</h2>
+  <% else %>
+    <div>
+      <h6>Amount of ingredients to buy: <%= @missing_ingredients.length %></h6>
+      <h6>Total value of foods needed: <%= number_to_currency @total_price %></h6>
+    </div>
+    <table class="table table-dark table-striped table-hover">
+      <thead class="table-light">
+        <tr>
+          <th scope="col">Food</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @missing_ingredients.each do |ingredient| %>
+          <%= render 'shopping_list', ingredient: %>
+        <% end %>
+      </tbody>
+  <% end %>
+</div>

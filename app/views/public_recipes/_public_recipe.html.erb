@@ -1,0 +1,14 @@
+<% total_price = 0 %>
+<% recipe.recipe_foods.each do |r| %>
+  <% total_price += r.food.price * r.quantity %>
+<% end %>
+<% total_price = number_to_currency(total_price) %>
+
+<div class="card text-bg-dark mb-4" id="<%= dom_id recipe %>">
+  <div class="card-body">
+    <h3 class="card-title"><%= recipe.name %></h3>
+    <h6 class="card-subtitle mb-2 text-muted">Preparation Time:&nbsp;<%= recipe.preparation_time %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cooking Time:&nbsp;<%= recipe.cooking_time %></h6>
+    <h6 class="card-subtitle mb-2 text-muted">Total food items:&nbsp;<%= recipe.recipe_foods.count %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total price:&nbsp;<%= total_price %></h6>
+    <p class="card-text"><%= recipe.description %></p>
+  </div>
+</div>
