@@ -10,14 +10,14 @@ RSpec.describe 'foods/index', type: :view do
                measurement_unit: 'kg',
                price: 1.5,
                quantity: 2,
-                user: user
+               user:
              ),
              Food.create!(
                name: 'Milk',
                measurement_unit: 'ml',
                price: 9.99,
                quantity: 3,
-               user: user
+               user:
              )
            ])
   end
