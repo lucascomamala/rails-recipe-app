@@ -5,9 +5,9 @@ RSpec.describe 'foods/edit', type: :view do
 
   let(:food) do
     Food.create!(
-      name: 'MyString',
-      measurement_unit: 'MyString',
-      price: '9.99',
+      name: 'Bananas',
+      measurement_unit: 'kg',
+      price: 1.5,
       quantity: 1,
       user: user
     )

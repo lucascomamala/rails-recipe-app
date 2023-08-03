@@ -1,32 +1,36 @@
 require 'rails_helper'
 
 RSpec.describe 'recipes/index', type: :view do
+  let(:user) { create(:user) }
+
   before(:each) do
     assign(:recipes, [
-             Recipe.create!(
-               name: 'Name',
-               preparation_time: 2,
-               cooking_time: 3,
-               description: 'MyText',
-               public: false
-             ),
-             Recipe.create!(
-               name: 'Name',
-               preparation_time: 2,
-               cooking_time: 3,
-               description: 'MyText',
-               public: false
-             )
-           ])
+      Recipe.create!(
+        name: 'Mashed Potatoes',
+        preparation_time: 2,
+        cooking_time: 3,
+        description: 'Mash them potatoes',
+        public: false,
+        user: user
+      ),
+      Recipe.create!(
+        name: 'Steak and Yams',
+        preparation_time: 24,
+        cooking_time: 32,
+        description: 'Yummy!',
+        public: false,
+        user: user
+      )
+    ])
   end
 
   it 'renders a list of recipes' do
     render
-    cell_selector = Rails::VERSION::STRING >= '7' ? 'div>p' : 'tr>td'
-    assert_select cell_selector, text: Regexp.new('Name'.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new(2.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new(3.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new('MyText'.to_s), count: 2
-    assert_select cell_selector, text: Regexp.new(false.to_s), count: 2
+    assert_select '.card .card-body', count: 2
+    assert_select 'h3.card-title', count: 2
+    assert_select 'p.card-text', count: 2
+    assert_select 'h6.card-subtitle', count: 2
+    assert_select 'a.card-link', text: 'Edit recipe', count: 2
+    assert_select 'a.card-link.text-danger', text: 'Delete recipe', count: 2
   end
 end
