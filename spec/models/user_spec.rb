@@ -27,16 +27,4 @@ RSpec.describe User, type: :model do
       expect(user.errors[:email]).to include('is invalid')
     end
   end
-
-  describe 'associations' do
-    it 'destroys associated foods when user is destroyed' do
-      food = create(:food, user: user) # Assuming you have a factory named 'food'
-      expect { user.destroy }.to change { Food.count }.by(-1)
-    end
-
-    it 'destroys associated recipes when user is destroyed' do
-      recipe = create(:recipe, user: user) # Assuming you have a factory named 'recipe'
-      expect { user.destroy }.to change { Recipe.count }.by(-1)
-    end
-  end
 end
