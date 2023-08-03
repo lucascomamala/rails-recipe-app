@@ -10,7 +10,7 @@ RSpec.describe 'recipes/show', type: :view do
                       cooking_time: 3,
                       description: 'MyText',
                       public: true,
-                      user: user
+                      user:
                     ))
   end
 

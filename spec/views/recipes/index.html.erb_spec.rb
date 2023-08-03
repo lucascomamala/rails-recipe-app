@@ -5,23 +5,23 @@ RSpec.describe 'recipes/index', type: :view do
 
   before(:each) do
     assign(:recipes, [
-      Recipe.create!(
-        name: 'Mashed Potatoes',
-        preparation_time: 2,
-        cooking_time: 3,
-        description: 'Mash them potatoes',
-        public: false,
-        user: user
-      ),
-      Recipe.create!(
-        name: 'Steak and Yams',
-        preparation_time: 24,
-        cooking_time: 32,
-        description: 'Yummy!',
-        public: false,
-        user: user
-      )
-    ])
+             Recipe.create!(
+               name: 'Mashed Potatoes',
+               preparation_time: 2,
+               cooking_time: 3,
+               description: 'Mash them potatoes',
+               public: false,
+               user:
+             ),
+             Recipe.create!(
+               name: 'Steak and Yams',
+               preparation_time: 24,
+               cooking_time: 32,
+               description: 'Yummy!',
+               public: false,
+               user:
+             )
+           ])
   end
 
   it 'renders a list of recipes' do
