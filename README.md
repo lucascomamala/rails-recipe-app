@@ -8,7 +8,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-    - [🚀 Live Demo](#live-demo)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -50,9 +50,7 @@ Recipe app built with RoR.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://rails-recipes-qfno.onrender.com)
+[Live Demo Link](https://rails-recipes-qfno.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
