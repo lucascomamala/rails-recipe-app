@@ -5,10 +5,10 @@
 # 📗 Table of Contents
 
 - [📖 About the Project](#about-project)
+  - [🚀 Live Demo](#live-demo)
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Setup](#setup)
   - [Prerequisites](#prerequisites)
@@ -28,6 +28,12 @@
 
 Recipe app built with RoR.
 
+## 🚀 Live Demo <a name="live-demo"></a>
+
+[Live Demo Link](https://rails-recipes-qfno.onrender.com)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
@@ -45,12 +51,6 @@ Recipe app built with RoR.
 - **Create recipes**
 - **Add custom foods**
 - **Generate shopping lists**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## 🚀 Live Demo <a name="live-demo"></a>
-
-[Live Demo Link](https://rails-recipes-qfno.onrender.com)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
