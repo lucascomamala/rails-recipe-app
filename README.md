@@ -1,3 +1,5 @@
+![Capture](https://github.com/lucascomamala/rails-recipe-app/assets/10102977/6317f52d-a020-4779-9cd6-b0a73d0647be)
+
 <a name="readme-top"></a>
 
 <!-- TABLE OF CONTENTS -->
